@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ponzi">
+    <head>
+        <title>Ponzi</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
+        <script src="angular.js"></script>
+        <script src="script.js"></script>
+    </head>
+
+<body ng-controller="CourtCtrl">
+      Users: {{clicks + 1}}
+      <br>Cost of app: $<input type="text" ng-model="appCost"></input>
+      <br>Apple's cut: 30%
+      <br>Parent share: $<input type="text" ng-model="parentShare"></input>
+      <br>App profit: {{pot | currency}}
+
+
+<div class="court">
+
+<div ng-repeat="user in users" class="ball no-select" ng-click="userClick(user.id)" ng-style="getPosition(user.id)">{{user.id}}/{{user.parent}}<br>{{user.money | currency}}</div>
+</div>
+
+
+    </body>
+</html>
