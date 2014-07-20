@@ -25,6 +25,7 @@
 	margin-top: 250px;
 }
 .ball:hover{
+	color: red;
 	z-index: 1;
 }
 
