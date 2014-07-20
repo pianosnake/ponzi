@@ -46,30 +46,44 @@
 			{id: $scope.clicks ,
 			 parent: id,
 			 level: currentLevel,
-			 levelIndex: currentLevelExists ? ($scope.levelCounts[currentLevel] + 1) : 0
+			 levelIndex: currentLevelExists ? $scope.levelCounts[currentLevel] : 0
 			});
 
 			//distribute money
 			users[id].money += $scope.parentShare;
 			$scope.pot += ($scope.appCost - $scope.parentShare);
 			
-
+			//update how many items are in the current level
 			if(currentLevelExists){
 				$scope.levelCounts[currentLevel] += 1;
 			}else{
-				$scope.levelCounts[currentLevel] = 0; 
+				$scope.levelCounts[currentLevel] = 1; 
 			}
-
 			users.push(newUser);
-console.log(users);
 		}
 
 
 		$scope.getPosition = function(id){
+
 			var info = users[id];
+
+			// probably put this in a positioning service
+			var radius = 50 * info.level;
+			var totalNeighbors = $scope.levelCounts[info.level];
+
+			//calculate the angle based on this items position amongst its neighbors
+			var angle = 6.2832 * ((info.levelIndex+1) / totalNeighbors);
+
+			var x = radius * Math.cos(angle);
+			var y = radius * Math.sin(angle);
+			
+			//todo: compute size or color based on money
 			return{
-				left: info.levelIndex * 60 + "px",
-				top: info.level * 60 + "px"
+				// left: info.levelIndex * 60 + "px",
+				// top: info.level * 60 + "px",
+				left: x + "px",
+				top: y + "px"
+
 			}
 		}
 
