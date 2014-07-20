@@ -19,6 +19,7 @@
 		$scope.appCost = 5; 
 		$scope.parentShare = 0.2; 
 		$scope.levelCounts = [1];
+		$scope.remainder = 0;
 		
 		$scope.getLevelStyle = StylingService.levelStyle;
 		$scope.getBallStyle = function(id){
@@ -66,6 +67,7 @@
 				ancestor = users[ancestor.parent];
 
 			}
+			$scope.remainder += moneyLeft;
 			
 			//update how many items are in the current level
 			if(currentLevelExists){
