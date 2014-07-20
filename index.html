@@ -18,9 +18,11 @@
 
 <div class="court">
 
-<div ng-repeat="level in levelCounts.length" class="level">{{level}}dfdfdf</div>
+<div class="levels">
+<div ng-repeat="n in levelCounts track by $index" class="level" ng-style="getLevelStyle($index)" ></div>
+</div>
 
-<div ng-repeat="user in users" class="ball no-select" ng-click="userClick(user.id)" ng-style="getPosition(user.id)">{{user.id}}/{{user.parent}}<br>{{user.money | currency}}</div>
+<div ng-repeat="user in users" class="ball no-select" ng-click="userClick(user.id)" ng-style="getBallStyle(user.id)">{{user.id}}/{{user.parent}}<br>{{user.money | currency}}</div>
 </div>
 
 

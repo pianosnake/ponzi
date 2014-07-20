@@ -28,6 +28,17 @@
 	z-index: 1;
 }
 
+.levels{
+	position: absolute;
+	margin-left: 50%;
+	margin-top: 250px;
+}
+.level{
+	position: absolute;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+}
+
 .no-select{
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;

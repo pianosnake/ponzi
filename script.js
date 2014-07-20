@@ -63,7 +63,7 @@
 		}
 
 
-		$scope.getPosition = function(id){
+		$scope.getBallStyle = function(id){
 
 			var info = users[id];
 
@@ -85,6 +85,18 @@
 				top: y + "px"
 
 			}
+		}
+
+		$scope.getLevelStyle = function(level){
+			var size = level * 100; 
+			var offset = - (size/2 - 20);
+			return{
+				width: size + "px",
+				height: size + "px",
+				"margin-left": offset+"px",
+				"margin-top": offset+"px"
+			}
+
 		}
 
 
