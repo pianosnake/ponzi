@@ -12,7 +12,7 @@
 
 	var app = angular.module("ponzi", []);
 
-	app.controller("CourtCtrl", function($scope) {
+	app.controller("CourtCtrl", function($scope, StylingService) {
 
 		$scope.clicks = 0;
 		$scope.users = users;
@@ -20,6 +20,12 @@
 		$scope.appCost = 5; 
 		$scope.parentShare = 1; 
 		$scope.levelCounts = [1];
+		
+		$scope.getLevelStyle = StylingService.levelStyle;
+		$scope.getBallStyle = function(id){
+			var clickedUser = users[id];
+			return StylingService.ballStyle(clickedUser, $scope.levelCounts[clickedUser.level]);
+		}; 
 
 		var firstUser = new User(
 			{id: $scope.clicks,
@@ -30,12 +36,9 @@
 
 		users.push(firstUser);
 
-	
-
 		$scope.userClick = function(id) {
 			
 			$scope.clicks += 1;
-
 
 			//make new user
 			var parent = users[id];
@@ -63,41 +66,8 @@
 		}
 
 
-		$scope.getBallStyle = function(id){
 
-			var info = users[id];
-
-			// probably put this in a positioning service
-			var radius = 50 * info.level;
-			var totalNeighbors = $scope.levelCounts[info.level];
-
-			//calculate the angle based on this items position amongst its neighbors
-			var angle = 6.2832 * ((info.levelIndex+1) / totalNeighbors);
-
-			var x = radius * Math.cos(angle);
-			var y = radius * Math.sin(angle);
-			
-			//todo: compute size or color based on money
-			return{
-				// left: info.levelIndex * 60 + "px",
-				// top: info.level * 60 + "px",
-				left: x + "px",
-				top: y + "px"
-
-			}
-		}
-
-		$scope.getLevelStyle = function(level){
-			var size = level * 100; 
-			var offset = - (size/2 - 20);
-			return{
-				width: size + "px",
-				height: size + "px",
-				"margin-left": offset+"px",
-				"margin-top": offset+"px"
-			}
-
-		}
+		
 
 
 	})
