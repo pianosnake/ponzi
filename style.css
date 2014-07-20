@@ -14,7 +14,7 @@
 .ball{
 	cursor: pointer;
 	position: absolute;
-	padding-top: 2px;
+	padding-top: 12px;
 	color: blue;
 	background-color: palegoldenrod;
 	border: 1px solid blue;
@@ -23,7 +23,12 @@
 	height: 40px;
 	margin-left: 50%;
 	margin-top: 250px;
+	text-align: center;
 }
+.ball.twolines{
+	padding-top: 2px;
+}
+
 .ball:hover{
 	color: red;
 	z-index: 1;
