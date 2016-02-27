@@ -3,7 +3,8 @@
     Users: {{users.length}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Levels: {{levelCounts.length}}
     <br>Cost to join: $<input type="text" ng-model="appCost"></input>
     <br>Parent share: <input type="text" ng-model="parentShare"></input>
-    <br>Remainder: {{remainder | currency}}
+    <br>Profit: {{remainder() | currency}}
+    <br>Legend: ID/Parent/Children
   </div>
 
   <div class="court">

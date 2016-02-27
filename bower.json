@@ -12,7 +12,7 @@
   ],
   "dependencies": {
     "angular": "1.2.18",
-    "ponzi": "git@github.com:pianosnake/ponzi.git#0.0.1"
+    "ponzi": "git@github.com:pianosnake/ponzi.git#0.0.2"
   },
   "license": "MIT",
   "private": true
