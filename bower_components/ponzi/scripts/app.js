@@ -21,7 +21,7 @@
       return {
         restrict: 'E',
         replace: true,
-        templateUrl: 'scripts/ponzi.html',
+        templateUrl: 'bower_components/ponzi/scripts/ponzi.html',
         controller: 'PageCtrl'
       };
     })
