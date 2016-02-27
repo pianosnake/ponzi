@@ -72,9 +72,6 @@ angular.module("ponzi").service("FinancialService", function() {
 		
 	}
 
-
-
-
 })
 
 })();

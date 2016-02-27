@@ -16,9 +16,14 @@
 			var clickedUser = $scope.users[id];
 			return StylingService.ballStyle(clickedUser, FinancialService.levelCounts[clickedUser.level]);
 		}; 
-
-		 
-
 	})
+    .directive('ponzi', function(){
+      return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'scripts/ponzi.html',
+        controller: 'PageCtrl'
+      };
+    })
 
 })();
