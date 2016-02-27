@@ -1,0 +1,19 @@
+{
+  "name": "ponzi",
+  "homepage": "http://pianosnake.github.io/ponzi/",
+  "authors": [
+    "Florin Alexandrescu <pianosnake@gmail.com>"
+  ],
+  "description": "Ponzi scheme visual explorer homepage",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "ponzi"
+  ],
+  "dependencies": {
+    "angular": "1.2.18",
+    "ponzi": "git@github.com:pianosnake/ponzi.git#0.0.1"
+  },
+  "license": "MIT",
+  "private": true
+}

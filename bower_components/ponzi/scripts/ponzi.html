@@ -1,0 +1,18 @@
+<div>
+  <div class="cpanel">
+    Users: {{users.length}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Levels: {{levelCounts.length}}
+    <br>Cost to join: $<input type="text" ng-model="appCost"></input>
+    <br>Parent share: <input type="text" ng-model="parentShare"></input>
+    <br>Remainder: {{remainder | currency}}
+  </div>
+
+  <div class="court">
+    <div class="levels">
+      <div ng-repeat="n in levelCounts track by $index" class="level" ng-style="getLevelStyle($index)"></div>
+    </div>
+
+    <div ng-repeat="user in users" class="ball no-select" ng-click="userClick(user.id)"
+         ng-class="{twolines: user.money>0}" ng-style="getBallStyle(user.id)">{{user.id}}/{{user.parent}}<span
+      ng-if="user.kids">/{{user.kids}}</span><span ng-if="user.money > 0"><br>{{user.money | currency}}</span></div>
+  </div>
+</div>
