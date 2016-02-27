@@ -1,11 +1,9 @@
 (function() {
 
 
-	angular.module("ponzi").factory("StylingService", function() {
+	angular.module("ponzi").service("StylingService", function() {
 
-		return {
-
-			ballStyle: function(user, totalNeighbors) {
+		this.ballStyle = function(user, totalNeighbors) {
 				var radius = 50 * user.level;
 
 				//calculate the angle based on this items position among its neighbors
@@ -19,9 +17,9 @@
 					left: x + "px",
 					top: y + "px"
 				}
-			},
+			};
 
-			levelStyle: function(level) {
+			this.levelStyle = function(level) {
 				var size = level * 100;
 				var offset = -(size / 2 - 20);
 				return {
@@ -31,7 +29,6 @@
 					"margin-top": offset + "px"
 				}
 
-			}
 		}
 	})
 })();
